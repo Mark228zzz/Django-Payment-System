@@ -137,5 +137,4 @@ USE_TZ = True
 # Stripe configuration
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
-STRIPE_PRICE_ID = 'your_stripe_price_id'
-STRIPE_WEBHOOK_SECRET = 'your_stripe_webhook_secret'
+STRIPE_PRICE_ID = 'price_1R9dsgGhPfcWAzVcBCu2ZBr8'
