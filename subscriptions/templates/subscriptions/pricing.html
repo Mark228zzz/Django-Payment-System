@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Pricing</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h1>Choose Your Plan</h1>
+    <button id="checkout-button">Subscribe Now</button>
+
+    <script>
+        var stripe = Stripe("{{ stripe_publishable_key }}");
+        document.getElementById("checkout-button").addEventListener("click", function () {
+            fetch("/create-checkout-session/", { method: "POST" })
+                .then(response => response.json())
+                .then(session => stripe.redirectToCheckout({ sessionId: session.sessionId }))
+                .catch(error => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>
